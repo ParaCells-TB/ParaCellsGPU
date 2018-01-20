@@ -17,7 +17,7 @@ __global__ void addMatColumnsKernel(int currentMatX, int offset, int funcIndex, 
 		return;
 	}
 
-	curandState localState = randStates[index];
+	//curandState localState = randStates[index];
 	
 	//Column elements initialization
 	for (int i = 0; i < maxMatY; i++)
@@ -28,7 +28,7 @@ __global__ void addMatColumnsKernel(int currentMatX, int offset, int funcIndex, 
 	if (funcIndex >= 0)
 	{
 		//Generate environment object
-		Environment *env = new Environment(d_array, maxArrX, envParamIdentifiers, currentEnvParamIdentifiersNum, &localState, currentMatX);
+		Environment *env = new Environment(d_array, maxArrX, envParamIdentifiers, currentEnvParamIdentifiersNum, &randStates[index], currentMatX);
 
 		//Generate cell object
 		Cell *cell = new Cell(d_matrix, index, maxMatX, maxMatY, cellIdentifiers, currentCellIdentifiersNum, paracellsObjects[index]);
@@ -44,7 +44,7 @@ __global__ void addMatColumnsKernel(int currentMatX, int offset, int funcIndex, 
 		delete cell;
 	}
 
-	randStates[index] = localState;
+	//randStates[index] = localState;
 }
 
 __global__ void addMatRowKernel(int currentMatX, int y, int funcIndex, float *d_matrix, float* d_array, int maxMatX, int maxMatY, int maxArrX, char **cellIdentifiers, int currentCellIdentifiersNum, char **envParamIdentifiers, int currentEnvParamIdentifiersNum, curandState *randStates, ParaCellsObject **paracellsObjects)
@@ -58,12 +58,12 @@ __global__ void addMatRowKernel(int currentMatX, int y, int funcIndex, float *d_
 		return;
 	}
 
-	curandState localState = randStates[index];
+	//curandState localState = randStates[index];
 
 	if (funcIndex >= 0)
 	{
 		//Generate environment object
-		Environment *env = new Environment(d_array, maxArrX, envParamIdentifiers, currentEnvParamIdentifiersNum, &localState, currentMatX);
+		Environment *env = new Environment(d_array, maxArrX, envParamIdentifiers, currentEnvParamIdentifiersNum, &randStates[index], currentMatX);
 
 		//Generate cell object
 		Cell *cell = new Cell(d_matrix, index, maxMatX, maxMatY, cellIdentifiers, currentCellIdentifiersNum, paracellsObjects[index]);
@@ -79,7 +79,7 @@ __global__ void addMatRowKernel(int currentMatX, int y, int funcIndex, float *d_
 		delete cell;
 	}
 
-	randStates[index] = localState;
+	//randStates[index] = localState;
 }
 
 __global__ void updateMatColumnsKernel(int currentMatX, int funcIndex, float *d_matrix, float* d_array, int maxMatX, int maxMatY, int maxArrX, char **cellIdentifiers, int currentCellIdentifiersNum, char **envParamIdentifiers, int currentEnvParamIdentifiersNum, void **d_resultCells, int *d_resultCellNum, void **d_env, curandState *randStates, ParaCellsObject **paracellsObjects)
@@ -93,12 +93,12 @@ __global__ void updateMatColumnsKernel(int currentMatX, int funcIndex, float *d_
 		return;
 	}
 
-	curandState localState = randStates[index];
+	//curandState localState = randStates[index];
 
 	if (funcIndex >= 0)
 	{
 		//Generate environment object
-		Environment *env = new Environment(d_array, maxArrX, envParamIdentifiers, currentEnvParamIdentifiersNum, &localState, currentMatX);
+		Environment *env = new Environment(d_array, maxArrX, envParamIdentifiers, currentEnvParamIdentifiersNum, &randStates[index], currentMatX);
 
 		//Generate cell object
 		Cell *cell = new Cell(d_matrix, index, maxMatX, maxMatY, cellIdentifiers, currentCellIdentifiersNum, paracellsObjects[index]);
@@ -121,7 +121,7 @@ __global__ void updateMatColumnsKernel(int currentMatX, int funcIndex, float *d_
 		//delete cell;
 	}
 
-	randStates[index] = localState;
+	//randStates[index] = localState;
 }
 
 __global__ void refreshMatColumnsByCellsKernel(int currentMatX, void **d_resultCells, int *d_resultCellNum, void **d_env, float *d_matrix, int maxMatX, int currentMatY, ParaCellsObject **paracellsObjects)
@@ -248,12 +248,12 @@ __global__ void updateMatColumnsWithoutRefreshKernel(int currentMatX, int funcIn
 		return;
 	}
 
-	curandState localState = randStates[index];
+	//curandState localState = randStates[index];
 
 	if (funcIndex >= 0)
 	{
 		//Generate environment object
-		Environment *env = new Environment(d_array, maxArrX, envParamIdentifiers, currentEnvParamIdentifiersNum, &localState, currentMatX);
+		Environment *env = new Environment(d_array, maxArrX, envParamIdentifiers, currentEnvParamIdentifiersNum, &randStates[index], currentMatX);
 
 		//Generate cell object
 		Cell *cell = new Cell(d_matrix, index, maxMatX, maxMatY, cellIdentifiers, currentCellIdentifiersNum, paracellsObjects[index]);
@@ -269,7 +269,7 @@ __global__ void updateMatColumnsWithoutRefreshKernel(int currentMatX, int funcIn
 		delete cell;
 	}
 
-	randStates[index] = localState;
+	//randStates[index] = localState;
 }
 
 __global__ void freeParaCellsObjectsKernel(ParaCellsObject **paracellsObjects, int size)
