@@ -38,7 +38,7 @@ Concepts "Cell attribute" and "Environment attribute" are mainly properties insi
 
 ## Installation & Usage
 
-### Prerequesities
+### Prerequisites
 
 * Ubuntu 16.04 LTS
 * NVIDIA CUDA Toolkits 7.5
