@@ -44,12 +44,12 @@ Concepts "Cell attribute" and "Environment attribute" are mainly properties insi
 
 > ParaCells architecture is expected to work properly on the higher version of Ubuntu operating systems and the newer CUDA Toolkits, but the compatibility has not been fully tested.
 
-### Create a ParaCells project
+### Create a ParaCells Project
 
 To create a new ParaCells project, just copy all the files in the ```src/``` directory into a new folder.
 Then the new directory can be temporarily considered as an individual ParaCells project.
 
-### Project file structure
+### Project File Structure
 
 The file structure of a ParaCells project is:
 
