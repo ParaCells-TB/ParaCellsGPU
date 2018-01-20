@@ -104,7 +104,7 @@ To run a ParaCells project for computing or simulation, follow instructions:
 
 If you want to remove the previous build, instructions below could be used to clean the project.
 
-1. Terminal;
+1. Open Terminal;
 2. Located in the directory where the project is placed;
 3. Execute command:
 
