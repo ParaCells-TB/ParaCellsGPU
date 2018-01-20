@@ -8,7 +8,7 @@ ParaCells is a lightweight, versatile, and easy-to-use simulation architecture f
 
 In the ParaCells architecture, there are 5 core concepts used in developing process. These concepts (objects) can be controled to implement your own models.
 
-![](doc/img/concept.png)
+<img src="doc/img/concept.png" width = "70%" align=center />
 
 * **Cell Environment** is a global concept of an environment. You can consider it as a virtual laboratory environment. We put a number of cells inside this environment, while each cell has several attributes. Between cells, the environment itself has some status as well, called environment parameters. Cells' attribute could be affected by environment, or it can affect the environment in turn. Of course, inside a program, it is possible to have more than one "Cell environment" simultaneously.
 * **Cell** represents a single cell inside "Cell environment", it has several numerical attributes named "Cell attribute".
